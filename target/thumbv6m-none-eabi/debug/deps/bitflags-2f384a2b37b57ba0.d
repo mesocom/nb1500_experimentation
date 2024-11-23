@@ -1,0 +1,11 @@
+C:\Users\perla\Downloads\nb1500_test\target\thumbv6m-none-eabi\debug\deps\libbitflags-2f384a2b37b57ba0.rmeta: C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\lib.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\iter.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\parser.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\traits.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\public.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\internal.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\external.rs
+
+C:\Users\perla\Downloads\nb1500_test\target\thumbv6m-none-eabi\debug\deps\bitflags-2f384a2b37b57ba0.d: C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\lib.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\iter.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\parser.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\traits.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\public.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\internal.rs C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\external.rs
+
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\lib.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\iter.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\parser.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\traits.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\public.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\internal.rs:
+C:\Users\perla\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.6.0\src\external.rs:

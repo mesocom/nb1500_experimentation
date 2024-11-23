@@ -1,0 +1,43 @@
+cargo install cargo-binutils
+rustup component add llvm-tools-preview
+rust-objcopy -O binary target/thumbv6m-none-eabi/debug/nb1500_test target/blinky_basic.bin
+
+cargo build --release --example blinky_basic
+arm-none-eabi-objcopy -O binary target/thumbv6m-none-eabi/release/examples/blinky_basic target/blinky_basic.bin
+# if using cargo-binutils, you can `rust-objcopy` with the same flags, or combine the previous 2 steps with `cargo objcopy`
+
+bossac
+
+https://forum.arduino.cc/t/where-is-bossac-exe/302541/3
+
+bossac -i -d -U true -i -e -w -v target/blinky_basic.bin -R
+
+C:\Users\perla\AppData\Local\Arduino15\packages\arduino\tools\bossac\1.8.0-48-gb176eee\bossac.exe -R -d -p COM7 -i -e -w -v target/blinky_basic.bin
+
+
+ATSAMD21G18A
+
+    //     probe-rs download 43439A0.bin --format bin --chip RP2040 --base-address 0x10100000
+
+probe-rs download C:\Users\perla\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.14\bootloaders\mkrnb1500\samd21_sam_ba_arduino_mkrnb1500.bin --binary-format bin --chip ATSAMD21G18A --base-address 0x0000
+
+
+------------------------------
+Critical Sections
+------------------------------
+static MY_VALUE: Mutex<Cell<u32>> = Mutex::new(Cell::new(0));
+
+critical_section::with(|cs| {
+    // This code runs within a critical section.
+    MY_VALUE.borrow(cs).set(42);
+});
+
+
+------------------------
+GETTING THE CELL RADIO TO WORK
+------------------------
+
+https://github.com/FactbirdHQ/ublox-cellular-rs/blob/master/examples/sockets/src/main.rs
+
+Uses ATAT for making AT commands https://docs.rs/atat/0.23.0/atat/index.html
+
