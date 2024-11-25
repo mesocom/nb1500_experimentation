@@ -1,0 +1,14 @@
+[general]
+log_level = "info" # Set log level to your preference
+
+[flashing]
+enabled = false
+# Specify the chip to use in the flashing section
+chip = "ATSAMD21G18A"
+
+[reset]
+enabled = true
+
+[gdb]
+enabled = true
+gdb_port = 1337

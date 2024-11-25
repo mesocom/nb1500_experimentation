@@ -1,12 +1,15 @@
 # samd21 is a Cortex-M0 and thus thumbv6m
 # NickP: this is generic config for the ATSAMD21 chips
 
+[alias]
+# debug = "run --target thumbv6m-none-eabi --exec 'probe-rs debug --chip ATSAMD21G18A'"
+
 [build]
 target = "thumbv6m-none-eabi"
 
 [target.thumbv6m-none-eabi]
 # runner = 'arm-none-eabi-gdb'
-runner = 'probe-rs attach --chip ATSAMD21G18A'
+runner = 'probe-rs run --chip ATSAMD21G18A'
 
 rustflags = [
 

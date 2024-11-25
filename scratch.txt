@@ -12,7 +12,9 @@ https://forum.arduino.cc/t/where-is-bossac-exe/302541/3
 
 bossac -i -d -U true -i -e -w -v target/blinky_basic.bin -R
 
-C:\Users\perla\AppData\Local\Arduino15\packages\arduino\tools\bossac\1.8.0-48-gb176eee\bossac.exe -R -d -p COM7 -i -e -w -v target/blinky_basic.bin
+cargo build
+rust-objcopy -O binary target/thumbv6m-none-eabi/debug/nb1500_test target/our_nb1500_test.bin
+C:\Users\perla\AppData\Local\Arduino15\packages\arduino\tools\bossac\1.8.0-48-gb176eee\bossac.exe -R -d -p COM7 -i -e -w -v -o 0x2000 .\target\nb1500_test.bin
 
 
 ATSAMD21G18A
@@ -20,7 +22,6 @@ ATSAMD21G18A
     //     probe-rs download 43439A0.bin --format bin --chip RP2040 --base-address 0x10100000
 
 probe-rs download C:\Users\perla\AppData\Local\Arduino15\packages\arduino\hardware\samd\1.8.14\bootloaders\mkrnb1500\samd21_sam_ba_arduino_mkrnb1500.bin --binary-format bin --chip ATSAMD21G18A --base-address 0x0000
-
 
 ------------------------------
 Critical Sections
