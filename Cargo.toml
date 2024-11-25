@@ -11,9 +11,7 @@ cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
 critical-section = { version = "1.1" }
 
 # arduino_mkrnb1500 = { git = "https://github.com/QuantumEF/atsamd/", branch = "mkrnb1500-support" }
-arduino_mkrnb1500 = { path = "C:\\Users\\perla\\Documents\\GitHub\\atsamd\\boards\\arduino_mkrnb1500", features = [
-    "usb",
-] }
+arduino_mkrnb1500 = { path = "C:\\Users\\perla\\Documents\\GitHub\\atsamd\\boards\\arduino_mkrnb1500" }
 # ^ the name here is a package searched within the Git Repo's [workspace]
 # This was by design of the people who created the atsamd crate since tehre are multiple boards to support
 # could be arduino_mkr1000 since it's under atsamd/boards/*
@@ -23,11 +21,8 @@ heapless = "0.8.0"
 defmt = "0.3"
 defmt-rtt = "0.3"
 panic-probe = "0.3"
-
-usbd-serial = "0.2"
-
-usb-device = "0.3.1"
-embedded-hal = "1.0.0"
+cortex-m-rt = "0.7.5"
+cortex-m-semihosting = "0.5.0"
 
 [features]
 use_semihosting = []

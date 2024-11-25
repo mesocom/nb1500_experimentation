@@ -6,58 +6,45 @@ use bsp::entry;
 use bsp::hal;
 use bsp::pac;
 use hal::clock::GenericClockController;
-use hal::usb::{usb_device::class_prelude::UsbBusAllocator, usb_device::prelude::*, UsbBus};
 use panic_halt as _;
-use usb_device::class_prelude::*;
-use usbd_serial::{SerialPort, USB_CLASS_CDC};
+
+use cortex_m_semihosting::debug;
+
+use defmt::{debug, error, info, warn};
+use defmt_rtt as _;
+
+use hal::delay::Delay;
+use hal::pac::{CorePeripherals, Peripherals};
+use hal::prelude::*;
 
 #[entry]
 fn main() -> ! {
-    let mut peripherals = pac::Peripherals::take().unwrap();
-    let mut clocks = GenericClockController::with_internal_32kosc(
+    let mut peripherals = Peripherals::take().unwrap(); // This line controls access to peripherals so multiple instances cannot exist (ie only one thing can control a pin at once)
+    let core = CorePeripherals::take().unwrap(); // Similar ^ but something to do with interrupts?
+
+    let mut clocks = GenericClockController::with_external_32kosc(
         peripherals.gclk,
         &mut peripherals.pm,
         &mut peripherals.sysctrl,
         &mut peripherals.nvmctrl,
-    );
-
-    let pins = bsp::Pins::new(peripherals.port);
-
-    // Configure the USB bus allocator
-    // let usb_allocator: UsbBusAllocator<UsbBus> =
-    //     UsbBus::new(&mut peripherals.pm, &mut clocks, peripherals.usb);
-
-    let usb_allocator = bsp::usb_allocator(
-        peripherals.usb,
-        &mut clocks,
-        &mut peripherals.pm,
-        pins.usb_n,
-        pins.usb_p,
-    );
-
-    // Create a serial port for USB communication
-    let mut serial = SerialPort::new(&usb_allocator);
-
-    // Configure the USB device
-    let mut usb_device = UsbDeviceBuilder::new(&usb_allocator, UsbVidPid(0x2341, 0x8053))
-        .strings(&[StringDescriptors::new(LangID::EN)
-            .manufacturer("Fake company")
-            .product("Serial port")
-            .serial_number("TEST")])
-        .expect("Failed to set strings")
-        .device_class(USB_CLASS_CDC)
-        .build();
-
-    let mut counter: u32 = 0;
+    ); // Inits clocks of system
+    let pins = bsp::Pins::new(peripherals.port); // Creates an alias for bsp::Pins
+    let mut led = pins.d6.into_push_pull_output(); // Creates LED pin like pinMode led = OUTPUT;
+    let mut delay = Delay::new(core.SYST, &mut clocks); // Creates a new delay instance out of the system timer
 
     loop {
-        // Poll the USB device
-        if usb_device.poll(&mut [&mut serial]) {
-            // Write a debug message over USB
-            use core::fmt::Write;
-            // let _ = write!(serial, "Debug: Counter = {}\r\n", counter);
-            serial.write(b"Fuck you").unwrap();
-            counter += 1;
-        }
+        delay.delay_ms(500u32);
+        led.set_high().unwrap();
+        delay.delay_ms(200u32);
+        led.set_low().unwrap();
+        error!("Hello");
+        debug!("Penis");
+    }
+}
+
+#[cortex_m_rt::exception]
+unsafe fn HardFault(_frame: &cortex_m_rt::ExceptionFrame) -> ! {
+    loop {
+        debug::exit(debug::EXIT_FAILURE);
     }
 }
