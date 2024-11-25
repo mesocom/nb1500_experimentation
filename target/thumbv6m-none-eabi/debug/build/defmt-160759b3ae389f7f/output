@@ -1,4 +1,0 @@
-cargo:rustc-link-search=C:\Users\perla\Downloads\nb1500_test\target\thumbv6m-none-eabi\debug\build\defmt-160759b3ae389f7f\out
-cargo:rustc-cfg=no_cas
-cargo:rustc-check-cfg=cfg(c_variadic)
-cargo:rustc-check-cfg=cfg(no_cas)
