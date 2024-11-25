@@ -23,6 +23,8 @@ defmt-rtt = "0.3"
 panic-probe = "0.3"
 cortex-m-rt = "0.7.5"
 cortex-m-semihosting = "0.5.0"
+nb = "1.1.0"
+panic-semihosting = "0.6.0"
 
 [features]
 use_semihosting = []
